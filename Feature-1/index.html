@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Input with Show Feature</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #86A788;
+        }
+
+        .password-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 15px 45px 15px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            background: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .password-input:focus {
+            outline: none;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .toggle-btn {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            color: #66a6ff;
+        }
+
+        .toggle-btn:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="password-container">
+        <input type="password" id="password" class="password-input" placeholder="Enter your password">
+        <button class="toggle-btn" onclick="togglePassword()">show</button>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleBtn = document.querySelector('.toggle-btn');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.innerHTML = 'hide';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.innerHTML = 'show';
+            }
+        }
+    </script>
+</body>
+</html>
